@@ -8,12 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const genshin_module_1 = require("./genshin/genshin.module");
+const typeorm_1 = require("@nestjs/typeorm");
+const genshin_controller_1 = require("./genshin/genshin.controller");
+const genshin_service_1 = require("./genshin/genshin.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [genshin_module_1.GenshinModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'mysql',
+                host: 'localhost',
+                port: 3306,
+                username: 'root',
+                password: 'root',
+                database: 'test_db',
+                retryDelay: 500,
+                retryAttempts: 10,
+            }),
+        ],
+        controllers: [genshin_controller_1.GenshinController],
+        providers: [genshin_service_1.GenshinService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

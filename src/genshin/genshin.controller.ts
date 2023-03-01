@@ -2,10 +2,10 @@
  * @Author: TifezzZ
  * @Date: 2023-02
  * @LastEditors: TifezzZ
- * @LastEditTime: 2023-02
+ * @LastEditTime: 2023-03
  * @Description:
  */
-import { Controller, Get, Post, Request, Query } from '@nestjs/common';
+import { Controller, Get, Post, Request, Query, Req } from '@nestjs/common';
 import { GenshinService } from './genshin.service';
 
 @Controller('genshin')
@@ -25,6 +25,13 @@ export class GenshinController {
   @Get('/getCharacterById')
   getCharacterById(@Query() query) {
     const id = parseInt(query.id);
+    return this.genshinService.getCharacterById(id);
+  }
+
+  @Get('/getCharacterById/:id/:name')
+  findCharacterById(@Req() req) {
+    console.log(req.params.name);
+    const id = parseInt(req.params.id);
     return this.genshinService.getCharacterById(id);
   }
 }
