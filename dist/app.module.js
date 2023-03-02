@@ -21,7 +21,7 @@ AppModule = __decorate([
                 host: 'localhost',
                 port: 3306,
                 username: 'root',
-                password: 'root',
+                password: '123456',
                 database: 'test_db',
                 retryDelay: 500,
                 retryAttempts: 10,
