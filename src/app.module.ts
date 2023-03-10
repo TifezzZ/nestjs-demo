@@ -1,7 +1,7 @@
 /*
  * @Author: TifezzZ
  * @Date: 2023-02
- * @LastEditors: TifezzZ
+ * @LastEditors: yujingbo
  * @LastEditTime: 2023-03
  * @Description:
  */
@@ -18,13 +18,13 @@ import { GenshinService } from './genshin/genshin.service';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql', // 数据库类型
-      host: 'localhost', // 数据库的连接地址host
+      host: '1.116.165.62', // 数据库的连接地址host
       port: 3306, // 数据库的端口 3306
       username: 'root', // 连接账号
       password: '123456', // 连接密码
-      database: 'test_db', // 连接的表名
+      database: 'test_db', // 连接的库
       retryDelay: 500, // 重试连接数据库间隔
-      retryAttempts: 10, // 允许重连次数
+      retryAttempts: 3, // 允许重连次数
     }),
   ],
   controllers: [GenshinController],

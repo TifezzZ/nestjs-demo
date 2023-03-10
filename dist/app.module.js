@@ -18,13 +18,13 @@ AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mysql',
-                host: 'localhost',
+                host: '1.116.165.62',
                 port: 3306,
                 username: 'root',
                 password: '123456',
                 database: 'test_db',
                 retryDelay: 500,
-                retryAttempts: 10,
+                retryAttempts: 3,
             }),
         ],
         controllers: [genshin_controller_1.GenshinController],
